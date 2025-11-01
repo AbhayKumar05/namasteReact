@@ -1,0 +1,31 @@
+{
+  "name": "namastereact",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [
+    "react"
+  ],
+  "homepage": "https://github.com/AbhayKumar05/namasteReact#readme",
+  "bugs": {
+    "url": "https://github.com/AbhayKumar05/namasteReact/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AbhayKumar05/namasteReact.git"
+  },
+  "license": "ISC",
+  "author": "Abhay Kumar",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "parcel": "^2.16.0"
+  },
+  "dependencies": {
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "browserlist": [
+    "last 1version"
+  ]
+}
