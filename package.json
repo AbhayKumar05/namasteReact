@@ -16,6 +16,8 @@
   "license": "ISC",
   "author": "Abhay Kumar",
   "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
     "test": "jest"
   },
   "devDependencies": {
