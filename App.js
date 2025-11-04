@@ -11,15 +11,8 @@ import ReactDOM from "react-dom/client";
  * </div>
  */
 
-const parent = React.createElement(
-    "div",{ id: "parent"},
-    React.createElement(
-        "div",{ id: "child"},
-        [React.createElement("h1", {}, "Im a h1 tag inside child div"), 
-        React.createElement("h2", {}, "Im a h2 tag inside child div")]
-    )
-);
+const heading = <h1 className="heading" tabIndex={1}>Hello JSX</h1>;
 
     const root = ReactDOM.createRoot(document.getElementById("root"));
-    root.render(parent);
+    root.render(heading);
             
