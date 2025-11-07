@@ -1,55 +1,26 @@
 import RestaurantCard from "./RestaurantCard";
-import{ useState } from "react";
+import{ useState, useEffect } from "react";
 
 const Body = () => {
 
-    const [resData, setResData] = useState([
-        {
-            info: {
-                id: "1",
-                name: "Burger King",
-                cuisines: ["Burgers", "Fast Food"],
-                avgRating: "4.2",
-                cloudinaryImageId: "burger_king_image",
-                costForTwo: 50000,
-                deliveryTime: 30
-            }
-        },
-        {
-            info: {
-                id: "2",
-                name: "Pizza Hut",
-                cuisines: ["Pizza", "Italian"],
-                avgRating: "5.0",
-                cloudinaryImageId: "pizza_hut_image",
-                costForTwo: 60000,
-                deliveryTime: 25
-            }
+    const [resData, setResData] = useState([]);
 
-        },
-        {
-            info: {
-                id: "3",
-                name: "Subway",
-                cuisines: ["Sandwiches", "Healthy Food"],
-                avgRating: "4.5",
-                cloudinaryImageId: "subway_image",
-                costForTwo: 40000,
-                deliveryTime: 20
-            }
-        },
-        {
-            info: {
-                id: "4",
-                name: "Taco Bell",
-                cuisines: ["Mexican", "Fast Food"],
-                avgRating: "4.0",
-                cloudinaryImageId: "taco_bell_image",
-                costForTwo: 35000,
-                deliveryTime: 28
-            }
-        }
-    ]);
+
+    useEffect(() => {
+        // API Call
+        fetchData();
+    }
+    , []);
+
+    const fetchData = async () => {
+        const data = await fetch(
+            "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING"
+        );
+        const json = await data.json();
+        console.log(json);
+
+        setResData(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants || []);
+    }
 
     return (
         <div className="body">

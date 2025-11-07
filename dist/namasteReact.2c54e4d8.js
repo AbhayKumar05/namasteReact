@@ -17532,7 +17532,7 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "CDN_URL", ()=>CDN_URL);
 parcelHelpers.export(exports, "LOGO_URL", ()=>LOGO_URL);
-const CDN_URL = "https://www.foxrc.com/wp-content/uploads/2024/09/restaurants-concept-cdo-00.jpg";
+const CDN_URL = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/";
 const LOGO_URL = "https://images-platform.99static.com/v84irzbNBd5aawXGKXfH4SEjcn0=/0x0:960x960/500x500/top/smart/99designs-contests-attachments/117/117132/attachment_117132760";
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"jnFvT":[function(require,module,exports,__globalThis) {
@@ -19860,64 +19860,17 @@ var _react = require("react");
 var _s = $RefreshSig$();
 const Body = ()=>{
     _s();
-    const [resData, setResData] = (0, _react.useState)([
-        {
-            info: {
-                id: "1",
-                name: "Burger King",
-                cuisines: [
-                    "Burgers",
-                    "Fast Food"
-                ],
-                avgRating: "4.2",
-                cloudinaryImageId: "burger_king_image",
-                costForTwo: 50000,
-                deliveryTime: 30
-            }
-        },
-        {
-            info: {
-                id: "2",
-                name: "Pizza Hut",
-                cuisines: [
-                    "Pizza",
-                    "Italian"
-                ],
-                avgRating: "5.0",
-                cloudinaryImageId: "pizza_hut_image",
-                costForTwo: 60000,
-                deliveryTime: 25
-            }
-        },
-        {
-            info: {
-                id: "3",
-                name: "Subway",
-                cuisines: [
-                    "Sandwiches",
-                    "Healthy Food"
-                ],
-                avgRating: "4.5",
-                cloudinaryImageId: "subway_image",
-                costForTwo: 40000,
-                deliveryTime: 20
-            }
-        },
-        {
-            info: {
-                id: "4",
-                name: "Taco Bell",
-                cuisines: [
-                    "Mexican",
-                    "Fast Food"
-                ],
-                avgRating: "4.0",
-                cloudinaryImageId: "taco_bell_image",
-                costForTwo: 35000,
-                deliveryTime: 28
-            }
-        }
-    ]);
+    const [resData, setResData] = (0, _react.useState)([]);
+    (0, _react.useEffect)(()=>{
+        // API Call
+        fetchData();
+    }, []);
+    const fetchData = async ()=>{
+        const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING");
+        const json = await data.json();
+        console.log(json);
+        setResData(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants || []);
+    };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "body",
         children: [
@@ -19929,20 +19882,20 @@ const Body = ()=>{
                         className: "search-input"
                     }, void 0, false, {
                         fileName: "src/componenets/Body.js",
-                        lineNumber: 57,
+                        lineNumber: 28,
                         columnNumber: 17
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                         className: "search-btn"
                     }, void 0, false, {
                         fileName: "src/componenets/Body.js",
-                        lineNumber: 58,
+                        lineNumber: 29,
                         columnNumber: 17
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/componenets/Body.js",
-                lineNumber: 56,
+                lineNumber: 27,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -19956,12 +19909,12 @@ const Body = ()=>{
                     children: "Top Rated Restaurants"
                 }, void 0, false, {
                     fileName: "src/componenets/Body.js",
-                    lineNumber: 61,
+                    lineNumber: 32,
                     columnNumber: 17
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/componenets/Body.js",
-                lineNumber: 60,
+                lineNumber: 31,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -19970,22 +19923,22 @@ const Body = ()=>{
                         resData: restaurant
                     }, restaurant.info.id, false, {
                         fileName: "src/componenets/Body.js",
-                        lineNumber: 70,
+                        lineNumber: 41,
                         columnNumber: 21
                     }, undefined))
             }, void 0, false, {
                 fileName: "src/componenets/Body.js",
-                lineNumber: 68,
+                lineNumber: 39,
                 columnNumber: 13
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/componenets/Body.js",
-        lineNumber: 55,
+        lineNumber: 26,
         columnNumber: 9
     }, undefined);
 };
-_s(Body, "cO+mboyevYzIlsOKGe9ChaEOxrk=");
+_s(Body, "l0d6AmtuOyAEXoCpSMXa5pizxnA=");
 _c = Body;
 exports.default = Body;
 var _c;
@@ -20010,7 +19963,7 @@ var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _constnts = require("../util/constnts");
 const RestaurantCard = (props)=>{
     const { resData } = props;
-    const { name, cuisines, avgRating, cloudinaryImageId, costForTwo, deliveryTime } = resData?.info;
+    const { name, cuisines, avgRating, cloudinaryImageId, deliveryTime } = resData?.info;
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "restaurant-card",
         children: [
@@ -20020,38 +19973,28 @@ const RestaurantCard = (props)=>{
                 alt: "restaurant-logo"
             }, void 0, false, {
                 fileName: "src/componenets/RestaurantCard.js",
-                lineNumber: 18,
+                lineNumber: 17,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
                 children: name
             }, void 0, false, {
                 fileName: "src/componenets/RestaurantCard.js",
-                lineNumber: 23,
+                lineNumber: 22,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
                 children: cuisines.join(", ")
             }, void 0, false, {
                 fileName: "src/componenets/RestaurantCard.js",
-                lineNumber: 24,
+                lineNumber: 23,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
                 children: avgRating
             }, void 0, false, {
                 fileName: "src/componenets/RestaurantCard.js",
-                lineNumber: 25,
-                columnNumber: 13
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
-                children: [
-                    costForTwo / 100,
-                    " FOR TWO"
-                ]
-            }, void 0, true, {
-                fileName: "src/componenets/RestaurantCard.js",
-                lineNumber: 26,
+                lineNumber: 24,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
@@ -20061,13 +20004,13 @@ const RestaurantCard = (props)=>{
                 ]
             }, void 0, true, {
                 fileName: "src/componenets/RestaurantCard.js",
-                lineNumber: 27,
+                lineNumber: 25,
                 columnNumber: 13
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/componenets/RestaurantCard.js",
-        lineNumber: 17,
+        lineNumber: 16,
         columnNumber: 9
     }, undefined);
 };
