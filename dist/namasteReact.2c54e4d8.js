@@ -17447,7 +17447,11 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _constnts = require("../util/constnts");
+var _react = require("react");
+var _s = $RefreshSig$();
 const Header = ()=>{
+    _s();
+    const [Login, setLogin] = (0, _react.useState)("Login");
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "header",
         children: [
@@ -17459,12 +17463,12 @@ const Header = ()=>{
                     alt: "logo"
                 }, void 0, false, {
                     fileName: "src/componenets/Header.js",
-                    lineNumber: 7,
+                    lineNumber: 12,
                     columnNumber: 17
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/componenets/Header.js",
-                lineNumber: 6,
+                lineNumber: 11,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -17475,48 +17479,60 @@ const Header = ()=>{
                             children: "Home"
                         }, void 0, false, {
                             fileName: "src/componenets/Header.js",
-                            lineNumber: 14,
+                            lineNumber: 19,
                             columnNumber: 21
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
                             children: "About Us"
                         }, void 0, false, {
                             fileName: "src/componenets/Header.js",
-                            lineNumber: 15,
+                            lineNumber: 20,
                             columnNumber: 21
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
                             children: "Contact Us"
                         }, void 0, false, {
                             fileName: "src/componenets/Header.js",
-                            lineNumber: 16,
+                            lineNumber: 21,
                             columnNumber: 21
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
                             children: "Cart"
                         }, void 0, false, {
                             fileName: "src/componenets/Header.js",
-                            lineNumber: 17,
+                            lineNumber: 22,
+                            columnNumber: 21
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                            className: "login-btn",
+                            onClick: ()=>{
+                                setLogin("Logout");
+                            },
+                            children: Login
+                        }, void 0, false, {
+                            fileName: "src/componenets/Header.js",
+                            lineNumber: 23,
                             columnNumber: 21
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "src/componenets/Header.js",
-                    lineNumber: 13,
+                    lineNumber: 18,
                     columnNumber: 17
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/componenets/Header.js",
-                lineNumber: 12,
+                lineNumber: 17,
                 columnNumber: 13
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/componenets/Header.js",
-        lineNumber: 5,
+        lineNumber: 10,
         columnNumber: 9
     }, undefined);
 };
+_s(Header, "zhLgRk7EuJYwufc3HMQIF7Wvh0c=");
 _c = Header;
 exports.default = Header;
 var _c;
@@ -17527,7 +17543,7 @@ $RefreshReg$(_c, "Header");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","../util/constnts":"elX2x","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"elX2x":[function(require,module,exports,__globalThis) {
+},{"react/jsx-dev-runtime":"dVPUn","../util/constnts":"elX2x","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","react":"jMk1U"}],"elX2x":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "CDN_URL", ()=>CDN_URL);
@@ -19873,12 +19889,11 @@ const Body = ()=>{
         console.log(json);
         setResData(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants || []);
     };
-    if (resData.length === 0) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _shimmerDefault.default), {}, void 0, false, {
+    return resData.length === 0 ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _shimmerDefault.default), {}, void 0, false, {
         fileName: "src/componenets/Body.js",
-        lineNumber: 27,
-        columnNumber: 16
-    }, undefined);
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        lineNumber: 26,
+        columnNumber: 35
+    }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "body",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -19889,20 +19904,20 @@ const Body = ()=>{
                         className: "search-input"
                     }, void 0, false, {
                         fileName: "src/componenets/Body.js",
-                        lineNumber: 33,
+                        lineNumber: 29,
                         columnNumber: 17
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                         className: "search-btn"
                     }, void 0, false, {
                         fileName: "src/componenets/Body.js",
-                        lineNumber: 34,
+                        lineNumber: 30,
                         columnNumber: 17
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/componenets/Body.js",
-                lineNumber: 32,
+                lineNumber: 28,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -19910,18 +19925,18 @@ const Body = ()=>{
                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                     className: "filter-btn",
                     onClick: ()=>{
-                        const resDataList = resData.filter((res)=>res.info.avgRating >= 4.5);
+                        const resDataList = resData.filter((res)=>res.info.avgRating >= 4);
                         setResData(resDataList);
                     },
                     children: "Top Rated Restaurants"
                 }, void 0, false, {
                     fileName: "src/componenets/Body.js",
-                    lineNumber: 37,
+                    lineNumber: 33,
                     columnNumber: 17
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/componenets/Body.js",
-                lineNumber: 36,
+                lineNumber: 32,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -19930,18 +19945,18 @@ const Body = ()=>{
                         resData: restaurant
                     }, restaurant.info.id, false, {
                         fileName: "src/componenets/Body.js",
-                        lineNumber: 46,
+                        lineNumber: 42,
                         columnNumber: 21
                     }, undefined))
             }, void 0, false, {
                 fileName: "src/componenets/Body.js",
-                lineNumber: 44,
+                lineNumber: 40,
                 columnNumber: 13
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/componenets/Body.js",
-        lineNumber: 31,
+        lineNumber: 27,
         columnNumber: 9
     }, undefined);
 };

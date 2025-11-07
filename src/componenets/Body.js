@@ -23,11 +23,7 @@ const Body = () => {
         setResData(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants || []);
     }
 
-    if(resData.length === 0){
-        return <Shimmer />;
-    }
-
-    return (
+    return resData.length === 0 ? <Shimmer /> : (
         <div className="body">
             <div className="Search">
                 <input type="text" className="search-input" />
@@ -36,7 +32,7 @@ const Body = () => {
             <div className="filter">
                 <button className="filter-btn" onClick={() => {
                      const resDataList = resData.filter(
-                        (res) => res.info.avgRating >= 4.5
+                        (res) => res.info.avgRating >= 4
                         );
                         setResData(resDataList);
                 }}>Top Rated Restaurants</button>
