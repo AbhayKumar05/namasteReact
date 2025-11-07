@@ -80,4 +80,26 @@
   padding: 10px 12px;
   font-size: 16px;
 }
+
+.shimmer-card {
+  color: #ece7e7;
+  background: #f3f0f0;
+  border: 1px solid #e2e2e2;
+  border-radius: 10px;
+  width: 230px;
+  height: 300px;
+  margin: 10px;
+  padding: 10px;
+  display: inline-block;
+  box-shadow: 0 4px 8px #0003, 0 6px 20px #00000030;
+}
+
+.shimmer-container {
+  flex-wrap: wrap;
+  justify-content: center;
+  justify-items: center;
+  gap: 10px;
+  padding: 20px;
+  display: flex;
+}
 /*# sourceMappingURL=namasteReact.9e4c6fd2.css.map */

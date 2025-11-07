@@ -80,3 +80,25 @@
     color: white;
     cursor: pointer;
 }
+
+.shimmer-card {
+    border: 1px solid #e2e2e2;
+    border-radius: 10px;
+    width: 230px;
+    display: inline-block;
+    height: 300px;
+    margin: 10px;
+    color: rgb(236, 231, 231);
+    background: #f3f0f0;
+    padding: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.shimmer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    justify-items: center;
+    padding: 20px;
+    gap: 10px;
+}
