@@ -37,10 +37,9 @@
   cursor: pointer;
   border: 1px solid #e2e2e2;
   border-radius: 10px;
-  width: 230px;
+  width: 240px;
   margin: 10px;
   padding: 10px;
-  font-size: smaller;
   box-shadow: 0 4px 8px #0003, 0 6px 20px #00000030;
 }
 
@@ -116,5 +115,11 @@
 .filter-search-container {
   justify-content: space-between;
   display: flex;
+}
+
+#TExt {
+  margin: 10px 0;
+  font-size: small;
+  font-weight: 200;
 }
 /*# sourceMappingURL=namasteReact.9e4c6fd2.css.map */

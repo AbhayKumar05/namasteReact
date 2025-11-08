@@ -20018,6 +20018,7 @@ const RestaurantCard = (props)=>{
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
+                id: "TExt",
                 children: name
             }, void 0, false, {
                 fileName: "src/componenets/RestaurantCard.js",
@@ -20025,6 +20026,7 @@ const RestaurantCard = (props)=>{
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
+                id: "TExt",
                 children: cuisines.join(", ")
             }, void 0, false, {
                 fileName: "src/componenets/RestaurantCard.js",
@@ -20032,6 +20034,7 @@ const RestaurantCard = (props)=>{
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
+                id: "TExt",
                 children: avgRating
             }, void 0, false, {
                 fileName: "src/componenets/RestaurantCard.js",
@@ -20039,11 +20042,9 @@ const RestaurantCard = (props)=>{
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
-                children: [
-                    deliveryTime,
-                    " mins"
-                ]
-            }, void 0, true, {
+                id: "TExt",
+                children: deliveryTime
+            }, void 0, false, {
                 fileName: "src/componenets/RestaurantCard.js",
                 lineNumber: 25,
                 columnNumber: 13
