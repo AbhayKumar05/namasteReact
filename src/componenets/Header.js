@@ -21,7 +21,7 @@ const Header = () => {
                     <li>Contact Us</li>
                     <li>Cart</li>
                     <button className="login-btn" onClick={() => {
-                        setLogin("Logout");
+                        Login === "Login" ? setLogin("Logout") : setLogin("Login");
                     }} >{Login}</button>
                 </ul>
             </div>

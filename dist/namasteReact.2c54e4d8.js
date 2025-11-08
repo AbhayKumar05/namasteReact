@@ -17506,7 +17506,7 @@ const Header = ()=>{
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                             className: "login-btn",
                             onClick: ()=>{
-                                setLogin("Logout");
+                                Login === "Login" ? setLogin("Logout") : setLogin("Login");
                             },
                             children: Login
                         }, void 0, false, {
@@ -19879,20 +19879,23 @@ var _s = $RefreshSig$();
 const Body = ()=>{
     _s();
     const [resData, setResData] = (0, _react.useState)([]);
+    const [searchText, setSearchText] = (0, _react.useState)("");
+    const [filteredRes, setFilteredRes] = (0, _react.useState)([]);
     (0, _react.useEffect)(()=>{
-        // API Call
         fetchData();
     }, []);
     const fetchData = async ()=>{
         const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING");
         const json = await data.json();
         console.log(json);
-        setResData(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants || []);
+        const restaurants = json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants || [];
+        setResData(restaurants);
+        setFilteredRes(restaurants);
     };
     return resData.length === 0 ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _shimmerDefault.default), {}, void 0, false, {
         fileName: "src/componenets/Body.js",
-        lineNumber: 26,
-        columnNumber: 35
+        lineNumber: 29,
+        columnNumber: 5
     }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "body",
         children: [
@@ -19901,66 +19904,73 @@ const Body = ()=>{
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
                         type: "text",
-                        className: "search-input"
+                        className: "search-input",
+                        value: searchText,
+                        onChange: (e)=>setSearchText(e.target.value)
                     }, void 0, false, {
                         fileName: "src/componenets/Body.js",
-                        lineNumber: 29,
-                        columnNumber: 17
+                        lineNumber: 33,
+                        columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                        className: "search-btn"
+                        className: "search-btn",
+                        onClick: ()=>{
+                            const filtered = resData.filter((res)=>res.info.name.toLowerCase().includes(searchText.toLowerCase()));
+                            setFilteredRes(filtered);
+                        },
+                        children: "Search"
                     }, void 0, false, {
                         fileName: "src/componenets/Body.js",
-                        lineNumber: 30,
-                        columnNumber: 17
+                        lineNumber: 39,
+                        columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/componenets/Body.js",
-                lineNumber: 28,
-                columnNumber: 13
+                lineNumber: 32,
+                columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 className: "filter",
                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                     className: "filter-btn",
                     onClick: ()=>{
-                        const resDataList = resData.filter((res)=>res.info.avgRating >= 4);
-                        setResData(resDataList);
+                        const topRated = resData.filter((res)=>res.info.avgRating >= 4);
+                        setFilteredRes(topRated);
                     },
                     children: "Top Rated Restaurants"
                 }, void 0, false, {
                     fileName: "src/componenets/Body.js",
-                    lineNumber: 33,
-                    columnNumber: 17
+                    lineNumber: 53,
+                    columnNumber: 9
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/componenets/Body.js",
-                lineNumber: 32,
-                columnNumber: 13
+                lineNumber: 52,
+                columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 className: "restaurant-list",
-                children: resData.map((restaurant)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _restaurantCardDefault.default), {
+                children: filteredRes.map((restaurant)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _restaurantCardDefault.default), {
                         resData: restaurant
                     }, restaurant.info.id, false, {
                         fileName: "src/componenets/Body.js",
-                        lineNumber: 42,
-                        columnNumber: 21
+                        lineNumber: 68,
+                        columnNumber: 11
                     }, undefined))
             }, void 0, false, {
                 fileName: "src/componenets/Body.js",
-                lineNumber: 40,
-                columnNumber: 13
+                lineNumber: 66,
+                columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/componenets/Body.js",
-        lineNumber: 27,
-        columnNumber: 9
+        lineNumber: 31,
+        columnNumber: 5
     }, undefined);
 };
-_s(Body, "l0d6AmtuOyAEXoCpSMXa5pizxnA=");
+_s(Body, "mPcfCkLEurH44J7zjbRpcTTrVIE=");
 _c = Body;
 exports.default = Body;
 var _c;
