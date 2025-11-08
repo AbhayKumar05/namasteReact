@@ -112,3 +112,8 @@
     color: white;
     cursor: pointer;
 }
+
+.filter-search-container{
+    display: flex;
+    justify-content: space-between;
+}

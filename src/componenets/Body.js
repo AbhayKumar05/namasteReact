@@ -29,39 +29,41 @@ const Body = () => {
     <Shimmer />
   ) : (
     <div className="body">
-      <div className="Search">
-        <input
-          type="text"
-          className="search-input"
-          value={searchText}
-          onChange={(e) => setSearchText(e.target.value)}
-        />
-        <button
-          className="search-btn"
-          onClick={() => {
-            const filtered = resData.filter((res) =>
-              res.info.name.toLowerCase().includes(searchText.toLowerCase())
-            );
-            setFilteredRes(filtered);
-          }}
-        >
-          Search
-        </button>
-      </div>
+        <div className="filter-search-container">
+            <div className="Search">
+                <input
+                type="text"
+                className="search-input"
+                value={searchText}
+                onChange={(e) => setSearchText(e.target.value)}
+                />
+                <button
+                className="search-btn"
+                onClick={() => {
+                    const filtered = resData.filter((res) =>
+                    res.info.name.toLowerCase().includes(searchText.toLowerCase())
+                    );
+                    setFilteredRes(filtered);
+                }}
+                >
+                Search
+                </button>
+            </div>
 
-      <div className="filter">
-        <button
-          className="filter-btn"
-          onClick={() => {
-            const topRated = resData.filter(
-              (res) => res.info.avgRating >= 4
-            );
-            setFilteredRes(topRated);
-          }}
-        >
-          Top Rated Restaurants
-        </button>
-      </div>
+            <div className="filter">
+                <button
+                className="filter-btn"
+                onClick={() => {
+                    const topRated = resData.filter(
+                    (res) => res.info.avgRating >= 4.2
+                    );
+                    setFilteredRes(topRated);
+                }}
+                >
+                Top Rated Restaurants
+                </button>
+            </div>
+        </div>
 
       <div className="restaurant-list">
         {filteredRes.map((restaurant) => (
