@@ -8,7 +8,9 @@ const RestaurantCard = (props) => {
         cuisines,
         avgRating,
         cloudinaryImageId,
-        deliveryTime
+        deliveryTime,
+        costForTwo,
+        sla,
     }= resData?.info;
 
 
@@ -22,6 +24,8 @@ const RestaurantCard = (props) => {
             <h3 id="TExt">{name}</h3>
             <h4 id="TExt">{cuisines.join(", ")}</h4>
             <h4 id="TExt">{avgRating}</h4>
+            <h4 id="TExt">{costForTwo}</h4>
+            <h4 id="TExt">{sla?.slaString}</h4>
             <h4 id="TExt">{deliveryTime}</h4>
         </div>
     );
