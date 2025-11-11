@@ -16,7 +16,7 @@ const RestaurantMenu = () => {
     setResInfo(json.data);
   };
 
-  console.log("Menu Data", restInfo);
+  if (!restInfo) return <Shimmer />;
 
   const restaurant =
     restInfo?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants?.[0]
@@ -31,9 +31,17 @@ const RestaurantMenu = () => {
     sla,
   } = restaurant || {};
 
-  return restInfo === null ? (
-    <Shimmer />
-  ) : (
+  // Extract all menu items dynamically
+  const menuSections =
+    restInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards || [];
+
+  const allItems = [];
+  menuSections.forEach((section) => {
+    const items = section?.card?.card?.itemCards || [];
+    allItems.push(...items);
+  });
+
+  return (
     <div className="menu">
       <h1>{name}</h1>
       <p>{cuisines?.join(", ")}</p>
@@ -41,11 +49,15 @@ const RestaurantMenu = () => {
       <p>{avgRating}</p>
       <p>{totalRatingsString}</p>
       <p>{sla?.deliveryTime} mins</p>
+
+      <h2>Menu Items:</h2>
       <ul>
-        <li>Idly</li>
-        <li>Dosa</li>
-        <li>Vada</li>
-        <li>Uttapam</li>
+        {allItems.map((item) => (
+          <li key={item.card.info.id}>
+            {item.card.info.name}
+            {item.card.info.price || item.card.info.defaultprice} INR
+          </li>
+        ))}
       </ul>
     </div>
   );
