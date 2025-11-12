@@ -4,6 +4,9 @@ dist/
 # Node modules
 node_modules/
 
+echo ".parcel-cache/" 
+echo "dist/" 
+
 
 # Compiled class file
 *.class
