@@ -1,11 +1,14 @@
-# Ignore Parcel cache and build files
+# Build and cache
 .parcel-cache/
 dist/
-# Node modules
+
+# Dependencies
 node_modules/
 
-echo ".parcel-cache/" 
-echo "dist/" 
+# Logs and system files
+*.log
+.DS_Store
+
 
 
 # Compiled class file
