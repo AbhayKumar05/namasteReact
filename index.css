@@ -1,3 +1,6 @@
+@import "tailwindcss";
+
+/*
 .header {
     display: flex;
     justify-content: space-between;
@@ -121,4 +124,4 @@
     margin: 10px 0px;
     font-weight: 200;
     font-size: smaller;
-}
+}*/
