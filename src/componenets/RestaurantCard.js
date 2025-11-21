@@ -14,6 +14,7 @@ const RestaurantCard = (props) => {
     }= resData?.info;
 
 
+
     return ( 
         <div className="shadow-lg p-5 m-5 bg-gray-50 rounded-lg w-95 h-96">
             <img 
