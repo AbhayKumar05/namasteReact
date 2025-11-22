@@ -26,7 +26,7 @@ const RestaurantMenu = () => {
 
 
   const category = restInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(c => c.card?.card?.title === "Recommended")[0]; 
-  const categories = restInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(c => c.card?.card?.["@type"] === "type.googleapis.com/swiggy.seo.widgets.v1.BrandsContent"); 
+  const categories = restInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(c => c.card?.card?.["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.FavouriteRestaurantInfoWithStyle"); 
   console.log(categories);
 
   // Extract all menu items dynamically
@@ -50,14 +50,9 @@ const RestaurantMenu = () => {
       <p>{totalRatingsString}</p>
       <p>{sla?.deliveryTime} mins</p>
 
-      {categories.map((category, index) => (
+      {category.map((category, index) => (
         <div key={index} className="my-4">
           <h2 className="text-xl font-semibold mb-2">{category.card.card.title}</h2>
-          <img
-            src={category.card.card.imageId ? `https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/${category.card.card.imageId}` : ''}
-            alt={category.card.card.title}
-            className="mx-auto"
-          />
         </div>
       ))}
       

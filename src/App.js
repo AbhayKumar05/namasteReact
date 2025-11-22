@@ -8,6 +8,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Contact from "./componenets/Contact";
 import Error from "./componenets/Error";
 import RestaurantMenu from "./componenets/RestaurantMenu";
+import UserContext from "./util/userContext";
+import { useState, useEffect } from "react";
+
 //import Grocery from "./componenets/Grocery";
 
 /* hard cooded version
@@ -26,14 +29,29 @@ const RestaurantCard = (props) => {
     );
 }*/
 
+
+
 const Grocery = lazy(() => import("./componenets/Grocery"));
 
 const AppLayout =  () => {
+    const [userInfo, setUserInfo] = useState();
+
+    useEffect(() => {
+        // API call to get user info
+        const data = {
+            name: "Abhay Kumar",
+        };
+        setUserInfo(data.name); 
+    }
+, []);
+
     return (
-        <div className="App">
-            <Header />
-            <Outlet />
-        </div>
+        <UserContext.Provider value={{ loggedInUser: userInfo, setUserInfo }} >
+            <div className="App">
+                <Header />
+                <Outlet />
+            </div>
+        </UserContext.Provider>
     );
 }
 

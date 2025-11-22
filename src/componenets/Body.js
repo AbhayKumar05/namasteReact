@@ -3,6 +3,9 @@ import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../util/useOnlineStatus"; 
+import userContext from "../util/userContext";
+import { useContext } from "react";
+
 
 const Body = () => {
   const [resData, setResData] = useState([]);
@@ -38,13 +41,14 @@ const Body = () => {
     );
   }
 
+  const {loggedInUser, setUserInfo} = useContext(userContext);
 
   return resData.length === 0 ? (
     <Shimmer />
   ) : (
     <div className="body">
         <div className="filter-search-container flex justify-between">
-            <div className=" bg-grey-200 rounded-sm">
+            <div >
                 <input
                 type="text"
                 className="search-input bg-gray-100 p-1 m-3 rounded-sm border border-gray-300"
@@ -62,6 +66,14 @@ const Body = () => {
                 >
                 Search
                 </button>
+                  <label className="ml-4">User Name: </label>
+                  <input 
+                    type="text"
+                    value={loggedInUser}
+                    className="user-input bg-gray-100 p-1 m-3 rounded-sm border border-gray-300"
+                    onChange={(e) => setUserInfo(e.target.value)}
+                    />
+
             </div>
 
             <div className="filter">
