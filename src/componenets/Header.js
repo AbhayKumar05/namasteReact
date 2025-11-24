@@ -14,6 +14,9 @@ const Header = () => {
 
     const loggedInUser = useContext(userContext);
 
+
+    const cart = useSelector((store) => store.cart);
+
     return (
         <div className="header flex justify-between shadow-md">
             <div className="logo-container justify-between"> 
