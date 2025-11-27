@@ -11,6 +11,9 @@ import RestaurantMenu from "./componenets/RestaurantMenu";
 import UserContext from "./util/userContext";
 import { useState, useEffect } from "react";
 import { Provider } from "react-redux";
+import appStore from "./util/appStore";
+import { useSelector } from "react-redux";
+
 
 //import Grocery from "./componenets/Grocery";
 
