@@ -1,6 +1,6 @@
 const Contact = () => {
     return (
-        <div>
+        <div className="contact-page m-5 p-5 border border-gray-300 rounded-sm shadow-lg">
             <h1>Contact Us Page</h1>
             <p>This is Contact Us page of Namaste React Live Course Chapter 07 - Finding Path and Links</p>
             <input type="text" placeholder="Enter your name" />
@@ -11,3 +11,5 @@ const Contact = () => {
 }
 
 export default Contact;
+
+       

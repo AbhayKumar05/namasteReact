@@ -12,7 +12,7 @@ import UserContext from "./util/userContext";
 import { useState, useEffect } from "react";
 import { Provider } from "react-redux";
 import appStore from "./util/appStore";
-import { useSelector } from "react-redux";
+
 
 
 //import Grocery from "./componenets/Grocery";
@@ -50,7 +50,7 @@ const AppLayout =  () => {
 , []);
 
     return (
-        <Provider store={appStore} >
+        <Provider store={appStore}>
             <UserContext.Provider value={{ loggedInUser: userInfo, setUserInfo }} >
                 <div className="App">
                     <Header />

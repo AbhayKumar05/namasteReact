@@ -3,15 +3,20 @@ import { render, screen } from "@testing-library/react";
 import Header from "../Header";
 import { BrowserRouter } from "react-router-dom";
 
-it("Should run in jsdom environment", () => {
+it("Should render Header component with a login button", () => {
     render(
         <BrowserRouter>
-        <Provider store={appStore}> 
-            <Header />
-        </Provider>
+            <Provider store={appStore}> 
+                <Header />
+            </Provider>
         </BrowserRouter>
 );
-    expect(TestEnvironment).toBeDefined();
+
+    const buttonElement = screen.getByRole("button", {
+        name: "Login",
+    });
+    
+    expect(buttonElement).toBeInTheDocument();
 });
 
 
