@@ -3,9 +3,9 @@ import Header from './Header'
 import { checkValidateEmail } from '../utils/validate'
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth'
 import { auth } from '../utils/firebase'
-import { useNavigate, updateProfile } from 'react-router-dom'
-import { user } from 'firebase/auth'
-import { updateProfile as updateProfileFirebase } from 'firebase/auth'
+import { useNavigate } from 'react-router-dom'
+import { updateProfile } from 'firebase/auth'
+
 
 
 const Login = () => {
@@ -39,9 +39,9 @@ const Login = () => {
                 email.current.value,
                 password.current.value
             )
+
             .then((userCredential) => {
-                console.log(userCredential.user);
-                navigate("/browser");
+                const user = userCredential.user;
 
                 updateProfile(user , {
                 displayName: name.current.value, photoURL: "https://avatars.githubusercontent.com/u/114108923?v=4"
