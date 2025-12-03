@@ -35,7 +35,7 @@ const Header = () => {
             }
         })
 
-        return () => unsubscribe();
+        return () => unsubscribe;
      }, []);
 
   return (
