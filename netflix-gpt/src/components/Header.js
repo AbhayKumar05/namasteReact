@@ -1,9 +1,16 @@
 import { getAuth, signOut } from "firebase/auth";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import React, { useEffect } from 'react';
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth } from '../utils/firebase';
+import { addUser, removeUser } from '../utils/userSlice';
+import { useDispatch } from 'react-redux';
+
 
 const Header = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const user = useSelector((store) => store.user);
 
@@ -11,11 +18,25 @@ const Header = () => {
     const auth = getAuth();
 
     signOut(auth).then(() => {
-      navigate("/")
     }).catch((error) => {
       navigate("/error")
     });
   }
+
+      useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, (user) => {
+            if (user) {
+                const {uid, email, displayName, photoURL} = user;
+                dispatch(addUser({ uid: uid, email: email, displayName: displayName, photoURL: photoURL }));
+                navigate("/browser");
+            } else {
+                dispatch (removeUser());
+                navigate("/");
+            }
+        })
+
+        return () => unsubscribe();
+     }, []);
 
   return (
     <div className="absolute bg-gradient-to-b from-black to-transparent flex justify-between w-full h-24 top-0 left-0 z-50">
