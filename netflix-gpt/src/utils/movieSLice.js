@@ -10,8 +10,11 @@ const MovieSlice = createSlice({
             state.nowPlayingMovie = action.payload;
         }
     },
+    addMovieTrailer: (state, action) => {
+        state.trailerKey = action.payload;
+    }
 });
 
 export default MovieSlice.reducer;
 
-export const { addMovie } = MovieSlice.actions;
+export const { addMovie, addMovieTrailer } = MovieSlice.actions;
