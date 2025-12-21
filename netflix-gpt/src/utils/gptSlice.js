@@ -9,7 +9,9 @@ const gptsearchSlice = {
         error: null,
     },
     reducers: {
-        
+        togleSearchView(state, action) {
+            state.isSearchView = !state.isSearchView;
+        },
         setQuery: (state, action) => {
             state.query = action.payload;
         },

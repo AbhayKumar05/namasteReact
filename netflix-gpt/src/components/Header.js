@@ -6,6 +6,7 @@ import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from '../utils/firebase';
 import { addUser, removeUser } from '../utils/userSlice';
 import { useDispatch } from 'react-redux';
+import { toggleGptSearch } from "../utils/gptSlice";
 
 
 const Header = () => {
@@ -39,7 +40,7 @@ const Header = () => {
      }, []);
 
       const handleGptSearch = () => {
-        navigate("/gptsearch");
+        dispatch (toggleGptSearch());
       }
 
   return (
