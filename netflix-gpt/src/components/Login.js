@@ -6,6 +6,7 @@ import { auth } from '../utils/firebase'
 import { updateProfile } from 'firebase/auth'
 import { useDispatch } from 'react-redux'
 import { addUser } from '../utils/userSlice'
+import { BG_URL } from '../utils/constants'
 
 const Login = () => {
 
@@ -76,7 +77,7 @@ const Login = () => {
             <Header />
             <div className="absolute w-full h-full z-[-1]">
                 <img
-                    src="https://assets.nflxext.com/ffe/siteui/vlv3/4ffe3d37-1fc1-4d93-b61a-1fa58c11ccff/web/PT-en-20251124-TRIFECTA-perspective_6156b547-3c06-43a4-9019-8a1c331cd14c_large.jpg"
+                    src={BG_URL}
                     className="default-ltr-iqcdef-cache-19j6xtr"
                     alt=""
                 />
